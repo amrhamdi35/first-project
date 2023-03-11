@@ -88,7 +88,7 @@ nav .navbar-nav {
 	padding: 14px
 }
 
-.navbar-dark .navbar-nav .nav-link.active {
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
 	color: var(--main-color)
 }
 
@@ -262,43 +262,35 @@ nav .navbar-nav {
 }
 
 @media (max-width: 991px) {
-	
 	.about .about-contant {
 		flex-direction: column;
 		text-align: center
 	}
 }
 
-.about svg {
+.about img:first-of-type {
 	position: absolute
 }
 
 @media (max-width: 991px) {
-	
-	.about .image svg {
-		display: none
-	}
+    .about img:first-of-type {
+        display: none
+    }
 }
 	
-.about img {
+.about img:nth-of-type(2) {
 	background: #999999;
 	width: 258px;
 	height: 234px;
 	position: absolute;
 	left: 19px;
 	border: 1px solid #FFF;
-	border-radius: 50%
+	border-radius: 50%;
 }
 
 @media (max-width: 991px) {
-	.about img {
-		left: 30%
-	}
-}
-
-@media (max-width: 767px) {
-	.about img {
-		left: 15%
+	.about img:nth-of-type(2) {
+		left: 66px
 	}
 }
 
@@ -307,6 +299,7 @@ nav .navbar-nav {
 	width: 120px;
 	height: 120px;
 	position: absolute;
+    border-radius: 50%;
 	left: 175px;
 	top: 0
 }
@@ -403,15 +396,20 @@ nav .navbar-nav {
 	flex-basis: 20px;
 	color: var(--main-color);
 	position: relative;
-	left: -146px
+	left: -136px
 }
 
 @media (min-width: 991px) and (max-width: 1200px) {
 	
 	.servies .servies-contant .card svg {
-		position: relative;
 		left: -196px
 	}
+}
+
+@media (max-width: 767px) {
+    .servies .servies-contant .card svg {
+        left: -158px
+    }
 }
 
 .servies .servies-contant .card h3 {
@@ -440,23 +438,26 @@ nav .navbar-nav {
 	position: relative
 }
 
-.skills svg {
-	position: absolute;
-	z-index: -1;
-	top: 170px
+.skills .skills-contant {
+	display: flex;
 }
 
-.skills .skills-contant {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-	grid-gap: 50px
+.skills .skills-contant img {
+    position: absolute;
+    top: 166px;
+    z-index: -2
 }
 
 @media (max-width: 1200px) {
-	
-	.skills .skills-contant svg {
-		display: none
-	}
+    .skills .skills-contant img {
+        left: 85px
+    }
+}
+
+@media (max-width: 767px) {
+    .skills .skills-contant img {
+        left: 30px;
+    }
 }
 
 .skills .skills-contant .card {
@@ -464,36 +465,42 @@ nav .navbar-nav {
 	background: none;
 	text-align: center;
 	margin-top: 50px;
+    margin-left: 10px
 }
 
 .skills .skills-contant .image {
-	width: 85px;
-	height: 78px;
+	width: 10px;
+	height: 10px;
 	border-radius: 50%;
 	border: 10px solid var(--main-color);
 	padding: 29px 37px;
 	position: absolute;
-	left: 71px;
+	left: 90px;
 	top: -27px
 }
 
-@media (max-width: 991px) {
-	
+@media (max-width: 1200px) {
 	.skills .skills-contant .image {
-		left: 118px
+		left: 61px
+	}
+}
+
+@media (max-width: 991px) {
+	.skills .skills-contant .image {
+		left: 32px
 	}
 }
 
 @media (max-width: 767px) {
-	
 	.skills .skills-contant .image {
-		left: 126px
+		left: 0;
+        padding: 22px 27px
 	}
 }
 
 .skills .skills-contant .image::before {
 	content: "";
-	width: 85px;
+	width: 10px;
 	height: 78px;
 	background: #FFF;
 	border: 5px solid #d7d7d7;
@@ -503,6 +510,13 @@ nav .navbar-nav {
 	left: -7px;
 	top: -11px;
 	z-index: -1
+}
+
+@media (max-width: 767px) {
+	.skills .skills-contant .image::before {
+        height: 65px;
+		padding: 10px 29px
+	}
 }
 
 .skills .skills-contant .card:nth-of-type(2) .image {
@@ -526,15 +540,36 @@ nav .navbar-nav {
 	font-size: 20px
 }
 
+@media (max-width: 767px) {
+    .skills .skills-contant .image span {
+        font-size: 15px;
+        left: 8px;
+        top: 12px
+    }
+}
+
 .skills .skills-contant h5 {
 	margin-top: 70px;
 	font-weight: 700
+}
+
+@media (max-width: 767px) {
+    .skills .skills-contant h5 {
+        margin-top: 48px;
+        font-size: 12px
+    }
 }
 
 .skills .skills-contant p {
 	color: #999999;
 	line-height: 1.6;
 	font-size: 12px
+}
+
+@media (max-width: 767px) {
+    .skills .skills-contant p {
+        font-size: 9px
+    }
 }
 
 /* End Skills */
@@ -548,39 +583,60 @@ nav .navbar-nav {
 	margin-top: -27px;
 }
 
+@media (max-width: 767px) {
+    .portfolio {
+        margin-top: -7px
+    }
+}
+
 .portfolio .portfolio-contant {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-	grid-gap: 20px;
+	display: flex;
+    flex-wrap: wrap;
+	justify-content: space-between;
 	position: relative
 }
 
 .portfolio .card {
+    flex-basis: 25%;
 	border: 0;
-	background: none
+	background: none;
+    transition: 0.3s
+}
+
+.portfolio .card:hover {
+	border: 5px solid #5076db;
+	background: #FFF;
+    width: 100%;
+    height: 100%
 }
 
 .portfolio img {
-	width: 270px;
+    width: 270px;
 	background: #999999;
 	height: 270px;
+    transition: 0.3s
+}
+
+@media (max-width: 1200px) {
+    .portfolio img {
+        width: 220px
+    }
+}
+
+@media (max-width: 991px) {
+    .portfolio img {
+        width: 160px;
+    }
 }
 
 @media (max-width: 767px) {
-	
 	.portfolio img {
-		margin-left: auto;
-		margin-right: auto
+		width: 80px
 	}
 }
 
-.portfolio img:hover {
-	border: 5px solid #5076db;
-	background: #FFF
-}
-
-.portfolio img:hover h6 {
-	z-index: 1
+.portfolio .card:hover img {
+    z-index: -1
 }
 
 .portfolio h6 {
@@ -589,6 +645,25 @@ nav .navbar-nav {
 	left: 90px;
 	color: #989898;
 	font-size: 20px
+}
+
+@media (max-width: 1200px) {
+    .portfolio h6 {
+        left: 60px
+    }
+}
+
+@media (max-width: 991px) {
+    .portfolio h6 {
+        left: 40px
+    }
+}
+
+@media (max-width: 767px) {
+    .portfolio h6 {
+        font-size: 10px;
+        left: 15px
+    }
 }
 
 .portfolio .card:nth-of-type(2) img,
@@ -638,22 +713,6 @@ nav .navbar-nav {
 	height: 230px;
 	margin-top: 20px
 }
-
-@media (max-width: 1200px) {
-	
-	.portfolio .card:nth-of-type(9) img,
-	.portfolio .card:nth-of-type(11) img {
-		margin-top: 10px
-	}
-}
- 
-@media (max-width: 991px) {
-	
-	.portfolio .card:nth-of-type(6) img,
-	.portfolio .card:nth-of-type(7) img {
-		margin-top: 10px
-	}
-}
  
 /* End Portfolio */
 
@@ -665,22 +724,13 @@ nav .navbar-nav {
 }
 
 .count .count-contant {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-	grid-gap: 30px;
+	display: flex;
 	position: relative
 }
 
-.count .count-contant svg {
+.count .count-contant img {
 	position: absolute;
 	top: 20px
-}
-
-@media (max-width: 1200px) {
-	
-	.count .count-contant svg {
-		display: none
-	}
 }
 
 .count .count-contant .card {
@@ -689,16 +739,31 @@ nav .navbar-nav {
 	text-align: center;
 	left: 20px;
 	top: 50px;
+    margin-left: 56px;
 	box-shadow: 0px 1px 5px 3px #f4f4f4
 }
 
-@media (max-width: 767px) {
-	
-	.count .count-contant .card {
-		left: 75px
-	}
+@media (max-width: 1200px) {
+    .count .count-contant .card {
+        margin-left: 19px
+    }
 }
 
+@media (max-width: 991px) {
+    .count .count-contant .card {
+        margin-left: -7px;
+        margin-right: 31px;
+    }
+}
+
+@media (max-width: 767px) {
+	.count .count-contant .card {
+        height: 57px;
+        left: 18px;
+        top: 32px;
+        padding: 5px 0
+	}
+}
 
 .count .count-contant .card span {
 	font-size: 40px;
@@ -706,9 +771,20 @@ nav .navbar-nav {
 	color: var(--main-color)
 }
 
+@media (max-width: 767px) {
+    .count .count-contant .card span {
+        font-size: 20px
+    }
+}
+
 .count .count-contant .card h5 {
-	font-weight: 700;
-	color: 
+	font-weight: 700
+}
+
+@media (max-width: 767px) {
+    .count .count-contant .card h5 {
+        font-size: 10px
+    }
 }
 
 /* End Count */
@@ -720,6 +796,12 @@ nav .navbar-nav {
 	padding-top: var(--section-padding);
 	padding-bottom: var(--section-padding);
 	margin-top: -27px;
+}
+
+@media (max-width: 767px) {
+    .team {
+        margin-top: -9px
+    }
 }
 
 .team .team-contant {
@@ -736,7 +818,6 @@ nav .navbar-nav {
 }
 
 @media (max-width: 767px) {
-	
 	.team .team-contant .card {
 		margin-left: auto;
 		margin-right: auto
@@ -822,33 +903,28 @@ nav .navbar-nav {
 
 /* Start Pricing */
 
-.up-svg {
-	margin-top: -125px
+.move-up {
+	margin-top: -120px
 }
 
 @media (max-width: 991px) {
-	.up-svg {
-		margin-top: -59px
-	}
+    .move-up {
+        margin-top: -78px;
+    }
+}
+
+@media (max-width: 767px) {
+    .move-up {
+        margin-top: -50px
+    }
 }
 
 .pricing {
 	background: #7ab183;
 	padding-top: var(--section-padding);
 	padding-bottom: var(--section-padding);
-	margin-top: -42px
-}
-
-@media (max-width: 1200px) {
-	.pricing {
-		margin-top: -48px
-	}
-}
-
-@media (max-width: 991px) {
-	.pricing {
-		margin-top: -31px
-	}
+	margin-top: -42px;
+    margin-bottom: -4px
 }
 
 .pricing .spacial-heading {
@@ -856,42 +932,33 @@ nav .navbar-nav {
 }
 
 .pricing .pricing-contant {
-	grid-gap: 30px
+	display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+}
+
+@media (max-width: 767px) {
+    .pricing .pricing-contant {
+        flex-direction: column
+    }
 }
 
 .pricing .pricing-contant .card {
+    flex-basis: 25%;
 	margin-top: 50px;
 	border-radius: 10px;
 	padding: 20px;
 	width: 85%;
-	height: 370px
-}
-
-@media (max-width: 991px) {
-	.pricing .pricing-contant .card {
-		margin-left: auto;
-		margin-right: auto
-	}
+	height: 370px;
+    overflow: hidden
 }
 
 .pricing .pricing-contant .card:first-of-type {
-	left: 125px
-}
-
-@media (max-width: 1200px) {
-	.pricing .pricing-contant .card:first-of-type {
-		left: 0
-	}
+	left: 88px
 }
 
 .pricing .pricing-contant .card:last-of-type {
-	left: -68px
-}
-
-@media (max-width: 1200px) {
-	.pricing .pricing-contant .card:last-of-type {
-		left: 0
-	}
+	left: -86px
 }
 
 .pricing .pricing-contant .card:nth-of-type(2) {
@@ -901,22 +968,49 @@ nav .navbar-nav {
 	z-index: 1;
 	width: 75%;
     height: 420px;
-	left: 50px;
-	top: -19px
+	top: 15px;
+    overflow: hidden
 }
 
 @media (max-width: 1200px) {
-	.pricing .pricing-contant .card:nth-of-type(2) {
-		left: 0
-	}
+    .pricing .pricing-contant .card {
+        flex-basis: 27%
+    }
+    .pricing .pricing-contant .card:first-of-type {
+        left: 54px;
+    }
+    .pricing .pricing-contant .card:last-of-type {
+        left: -53px;
+    }
 }
 
 @media (max-width: 991px) {
-	.pricing .pricing-contant .card:nth-of-type(2) {
-		width: 85%
-	}
+    .pricing .pricing-contant .card:first-of-type {
+        left: -6px;
+    }
+    .pricing .pricing-contant .card {
+        flex-basis: 33.3%;
+    }
+    .pricing .pricing-contant .card:last-of-type {
+        left: 5px;
+    }
 }
 
+@media (max-width: 767px) {
+    .pricing .pricing-contant .card {
+        margin-left: auto;
+        margin-right: auto
+    }
+    .pricing .pricing-contant .card:first-of-type {
+        left: 0
+    }
+    .pricing .pricing-contant .card:nth-of-type(2) {
+        top: 0
+    }
+    .pricing .pricing-contant .card:last-of-type {
+        left: 0
+    }
+}
 
 .pricing .pricing-contant .card:nth-of-type(2) h5 {
 	color: var(--main-color)
@@ -970,6 +1064,11 @@ nav .navbar-nav {
 	color: #111111
 }
 
+@media (max-width: 991px) {
+    .pricing .pricing-contant .card p {
+        font-size: 9px
+    }
+}
 .pricing .pricing-contant .card button {
 	padding: 10px;
 	border-radius: 20px;
@@ -983,6 +1082,12 @@ nav .navbar-nav {
 	box-shadow: 1px 2px 10px 3px #d8e0f7;
 }
 
+@media (max-width: 1200px) {
+    .pricing .pricing-contant .card button {
+        width: 56%
+    }
+}
+
 /* End Pricing */
 
 /* Start Testimonials */
@@ -993,36 +1098,39 @@ nav .navbar-nav {
 	background: #FFF
 }
 
-@media (max-width: 1200px) {
-	.hide {
-		display: none
-	}
-	
-	.Testimonials {
-		display: none
-	}
-}
-
 .Testimonials .carousel-inner {
 	height: 350px
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 991px) {
 	.Testimonials .carousel-inner {
-		height: 450px
+		height: 250px
+	}
+}
+
+@media (max-width: 767px) {
+	.Testimonials .carousel-inner {
+		height: 600px
 	}
 }
 
 .Testimonials .carousel-item.active {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-	grid-gap: 30px
+	display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between
 }
 
 .Testimonials .card {
+    flex-basis: 50%;
 	background: none;
 	border: 0;
 	margin-top: 40px
+}
+
+@media (max-width: 767px) {
+    .Testimonials .card {
+        flex-basis: 100%
+    }
 }
 
 .Testimonials .carousel-item .card:first-of-type {
@@ -1031,6 +1139,25 @@ nav .navbar-nav {
 
 .Testimonials .carousel-item .card:last-of-type {
 	left: -60px
+}
+
+@media (max-width: 991px) {
+    .Testimonials .carousel-item .card:first-of-type {
+        left: 0;
+    }
+    .Testimonials .carousel-item .card:last-of-type {
+        left: 0
+    }
+}
+
+@media (max-width: 767px) {
+    .Testimonials .carousel-item .card:first-of-type {
+        left: 0;
+        top: 70px
+    }
+    .Testimonials .carousel-item .card:last-of-type {
+        left: 0
+    }
 }
 
 .Testimonials .card p {
@@ -1044,6 +1171,12 @@ nav .navbar-nav {
 	box-shadow: 1px 1px 9px 5px #f6f6f6
 }
 
+@media (max-width: 991px) {
+    .Testimonials .card p {
+        font-size: 8px
+    }
+}
+
 .Testimonials .card img {
 	width: 0;
 	height: 0;
@@ -1055,6 +1188,12 @@ nav .navbar-nav {
 	left: 100px
 }
 
+@media (max-width: 991px) {
+    .Testimonials .card img {
+        left: 58px
+    }
+}
+
 .Testimonials .card h5 {
 	font-weight: 700;
 	position: absolute;
@@ -1062,10 +1201,24 @@ nav .navbar-nav {
 	bottom: -43px
 }
 
+@media (max-width: 991px) {
+    .Testimonials .card h5 {
+        left: 130px
+    }
+}
+
 .Testimonials .card span:first-of-type {
 	position: absolute;
 	left: 169px;
 	bottom: -58px
+}
+
+@media (max-width: 991px) {
+    .Testimonials .card span:first-of-type {
+        left: 136px;
+        bottom: -53px;
+        font-size: 10px
+    }
 }
 
 .Testimonials .card 
@@ -1077,15 +1230,15 @@ svg:not(:root).svg-inline--fa {
 	color: #e4f5e7
 }
 
-.carousel-indicators {
-	display: none
+@media (max-width: 991px) {
+    .Testimonials .card 
+    svg:not(:root).svg-inline--fa {
+        right: 60px
+    }
 }
 
-.Testimonials .carousel-control-icon {
-	border: 1px solid #e1e1e1;
-	border-radius: 50%;
-	padding: 7px;
-	color: #97979b
+.Testimonials .carousel-indicators {
+	display: none
 }
 
 /* End Testimonials */
@@ -1099,10 +1252,17 @@ svg:not(:root).svg-inline--fa {
 	margin-top: -26px
 }
 
-@media (max-width: 1200px) {
-	.work{
-		margin-top: -23px
-	}
+@media (max-width: 991px) {
+    .work {
+        margin-bottom: -2px
+    }
+}
+
+@media (max-width: 767px) {
+    .work {
+        margin-top: -8px;
+        margin-bottom: -1px
+    }
 }
 
 .work .work-contant {
@@ -1142,11 +1302,13 @@ svg:not(:root).svg-inline--fa {
 }
 
 .blog .blog-contant {
-	grid-gap: 50px
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between
 }
 
 .blog  .card {
-	width: 330px;
+	width: 30%;
 	border-radius: 10px;
 	margin-top: 50px;
 	padding-bottom: 36px
@@ -1164,6 +1326,19 @@ svg:not(:root).svg-inline--fa {
 	color: #FFF
 }
 
+@media (max-width: 1200px) {
+    .blog .card {
+        width: 32%;
+        margin-left: 1.3%
+    }
+}
+
+@media (max-width: 767px) {
+    .blog .card {
+        width: 100%
+    } 
+}
+
 .blog  .card:nth-of-type(2) p {
 	color: #FFF
 }
@@ -1177,7 +1352,7 @@ svg:not(:root).svg-inline--fa {
 }
 
 .blog .card img:first-of-type {
-	width: 330px;
+	width: 100%;
 	height: 212px;
 	background: #999999;
 	border-radius: 10px
@@ -1199,11 +1374,23 @@ svg:not(:root).svg-inline--fa {
 	margin-top: 1px
 }
 
+@media (max-width: 991px) {
+    .blog .card h5 {
+        font-size: 14px
+    }
+}
+
 .blog .card p {
 	font-size: 14px;
 	margin-left: 10px;
 	margin-top: -9px;
 	color: #868686
+}
+
+@media (max-width: 991px) {
+    .blog .card p {
+        font-size: 11px
+    }
 }
 
 .blog .card img:last-of-type {
@@ -1266,7 +1453,8 @@ svg:not(:root).svg-inline--fa {
 	width: 250px;
 	height: 250px;
 	background: #999999;
-	border-radius: 15px
+	border-radius: 15px;
+    transition: .3s
 }
 
 .instagram .instagram-contant .card img:hover {
@@ -1290,10 +1478,10 @@ svg:not(:root).svg-inline--fa {
 	height: 430px
 }
 
-@media (max-width: 991px) {
-	.submit {
-		height: 630px
-	}
+@media (max-width: 767px) {
+    .submit {
+        height: 650px
+    }
 }
 
 .submit .submit-contant {
@@ -1376,7 +1564,7 @@ svg:not(:root).svg-inline--fa {
 
 /* Start Footer */
 
-.footer-svg {
+.footer-up {
 	transform: rotate(180deg)
 }
 
@@ -1390,17 +1578,19 @@ footer {
 
 @media (max-width: 767px) {
 	footer{
-		margin-top: 0
+		margin-top: -2px;
+        padding-bottom: 69px
 	}
 }
 
 footer .footer-contant {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-	grid-gap: 30px
+	display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between
 }
 
 footer .footer-contant .card {
+    flex-basis: 25%;
 	border: 0;
 	background: none
 }
@@ -1409,6 +1599,19 @@ footer .footer-contant .card h2 {
 	font-size: 20px;
 	color: #FFF;
 	font-weight: 700;
+}
+
+@media (max-width: 767px) {
+    footer .footer-contant .card h2 {
+        font-size: 9px;
+        margin-left: 5px
+    }
+    footer .footer-contant .card:nth-child(2) h2 {
+        margin-left: 17px
+    }
+    footer .footer-contant .card:nth-child(3) h2 {
+        margin-left: 19px;
+    }
 }
 
 footer .footer-contant .card ul{
@@ -1424,6 +1627,12 @@ footer .footer-contant .card li {
 	padding: 5px
 }
 
+@media (max-width: 767px) {
+    footer .footer-contant .card li {
+        font-size: 5px
+    }
+}
+
 footer .footer-contant .card .icon {
 	display: grid
 }
@@ -1435,6 +1644,15 @@ footer .footer-contant .card:nth-of-type(2) .icon svg {
 	padding: 7px;
 	margin: 15px;
 	margin-left: 0
+}
+
+@media (max-width: 767px) {
+    footer .footer-contant .card:nth-of-type(2) .icon svg {
+        padding: 5px;
+        margin: 8px;
+        font-size: 8px;
+        margin-left: 0
+    }
 }
 
 footer .footer-contant .card p {
@@ -1454,6 +1672,30 @@ footer .footer-contant .card p:last-of-type {
 	left: 49px
 }
 
+@media (max-width: 991px) {
+    footer .footer-contant .card p {
+        right: -20px;
+        top: 48px;
+        font-size: 9px
+    }
+}
+
+@media (max-width: 767px) {
+    footer .footer-contant .card p {
+        right: -15px;
+        top: 29px;
+        font-size: 5px;
+    }   
+    footer .footer-contant .card p:nth-of-type(2) {
+        top: 70px
+    }
+    footer .footer-contant .card p:last-of-type {
+        top: 104px;
+        left: 28px;
+        font-size: 7px
+    }
+}
+
 footer .footer-contant .card input {
 	border: 1px solid #404249;
 	border-radius: 20px;
@@ -1463,11 +1705,26 @@ footer .footer-contant .card input {
 	color: #909092
 }
 
+@media (max-width: 767px) {
+    footer .footer-contant .card input{
+        padding: 8px 12px;
+        margin: 4px 0;
+        font-size: 6px;
+        margin-left: 13px
+    }
+}
+
 footer .footer-contant .card input[type="submit"] {
 	background: var(--secondary-color);
-	width: 55%;
+	width: 76%;
 	font-weight: 700;
 	color: #FFF
+}
+
+@media (max-width: 991px) {
+    footer .footer-contant .card input[type="submit"] {
+        width: 88%
+    }
 }
 
 footer .footer-contant .card:last-of-type .icon svg {
@@ -1480,6 +1737,18 @@ footer .footer-contant .card:last-of-type .icon svg {
 
 footer .footer-contant .card:last-of-type .icon svg:first-of-type {
 	padding: 6px 9px
+}
+
+@media (max-width: 767px) {
+    footer .footer-contant .card:last-of-type .icon svg {
+        font-size: 8px;
+        margin-left: 4px;
+        padding: 6px;
+        margin-top: 6px
+    }   
+    footer .footer-contant .card:last-of-type .icon svg:first-of-type {
+        padding: 5px 7px;
+    }
 }
 
 footer .footer-contant .card span {
@@ -1501,6 +1770,23 @@ footer .footer-contant .card span:last-of-type {
 	top: 166px
 }
 
+@media (max-width: 767px) {
+    footer .footer-contant .card span {
+        top: 26px;
+        left: 35px;
+        font-size: 10px
+    } 
+    footer .footer-contant .card span:nth-of-type(2) {
+        top: 54px;
+    }
+    footer .footer-contant .card span:nth-of-type(3) {
+        top: 82px;
+    }
+    footer .footer-contant .card span:last-of-type {
+        top: 115px;
+    }
+}
+
 footer .footer-contant h4 {
 	background: var(--main-color);
 	padding: 10px 19px;
@@ -1511,15 +1797,16 @@ footer .footer-contant h4 {
 	top: 142px
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 991px) {
 	footer .footer-contant h4 {
-		right: 31px
+		right: 30px
 	}
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
 	footer .footer-contant h4 {
-		right: 0
+		right: 45%;
+        top: 0
 	}
 }
 
@@ -1530,6 +1817,12 @@ footer .footer-contant hr {
 	bottom: 46px
 }
 
+@media (max-width: 767px) {
+	footer .footer-contant hr {
+        bottom: 30px
+    }
+}
+
 footer .footer-contant p:last-of-type {
 	color: #909092;
 	width: 50%;
@@ -1538,11 +1831,18 @@ footer .footer-contant p:last-of-type {
 	left: 35%
 }
 
+@media (max-width: 991px) {
+	footer .footer-contant p:last-of-type {
+        left: 23%;
+    }
+}
+
 @media (max-width: 767px) {
 	footer .footer-contant p:last-of-type {
 		width: 84%;
-		bottom: 2px;
-		left: 9%
+        bottom: 2px;
+        left: 9%;
+        font-size: 10px;
 	}
 }
 
